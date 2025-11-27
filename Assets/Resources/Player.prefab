@@ -6101,3 +6101,4 @@ MonoBehaviour:
   basicPlatformerController: {fileID: 568131777654665149}
   cameraPlayer: {fileID: 5377579531152042541}
   photonView: {fileID: 183324554745777587}
+  msmObject: {fileID: 0}
