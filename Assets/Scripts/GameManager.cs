@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         btnConnet.SetActive(false);
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
 
@@ -93,6 +94,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("Estamos conectados a la sala "
                   + PhotonNetwork.CurrentRoom.Name
                   + " | Bienvenido: " + PhotonNetwork.NickName);
+    }
+
+    public void StartScene()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("InGame");
+        }
     }
 
     IEnumerator UpdateTextSala()
