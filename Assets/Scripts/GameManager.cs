@@ -3,27 +3,29 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Intancias de Scripts")]
-    public WindowHandler windowhandler;
+    public WindowHandler windowHandler;
+
 
     [Header("Indicadores")]
     public TMP_Text textIndicador;
     public TMP_Text textNameSala;
-   public Transform contentPlayers;
-
+    public Transform contentPlayers;
 
 
     [Header("prefabs")]
     public GameObject nickNamePlayer;
 
 
-
     [Header("Bones de menu")]
     public GameObject btnConnet;
-    public GameObject  btnStart;
+    public GameObject btnStart;
+
+    private int countPlayer = 0;
 
 
     private void Start()
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        string  user = PhotonNetwork.NickName;
+        string user = PhotonNetwork.NickName;
         string nameRoom = "sala1";
 
         RoomOptions optionRoom = new RoomOptions();
@@ -82,13 +84,44 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
 
+
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        windowhandler.EnableWindow(1);
-        textNameSala.text = $"Nombre de la sala: {PhotonNetwork.CurrentRoom.Name}- #Jugadores: {PhotonNetwork.CurrentRoom.PlayerCount}";
-        Debug.Log("Usuario " + PhotonNetwork.NickName + " se ha unido a la sala " + PhotonNetwork.CurrentRoom.Name);
+        windowHandler.EnabledWindow(1);
+        StartCoroutine(UpdateTextSala());
+        Debug.Log("Estamos conectados a la sala "
+                  + PhotonNetwork.CurrentRoom.Name
+                  + " | Bienvenido: " + PhotonNetwork.NickName);
     }
+
+    IEnumerator UpdateTextSala()
+    {
+        while (true)
+        {
+            textNameSala.text =
+                $"Nombre sala: {PhotonNetwork.CurrentRoom.Name} - " +
+                $"#Jugadores: {PhotonNetwork.CurrentRoom.PlayerCount}";
+
+            yield return new WaitForSeconds(0.2f);
+            if (PhotonNetwork.CurrentRoom.Players.Count > countPlayer)
+            {
+                countPlayer = PhotonNetwork.CurrentRoom.Players.Count;
+                foreach (Transform child in contentPlayers)
+                    Destroy(child.gameObject);
+                foreach (var item in PhotonNetwork.CurrentRoom.Players)
+                {
+                    GameObject nickName = Instantiate(nickNamePlayer, contentPlayers);
+                    nickName.GetComponent<TMP_Text>().text = item.Value.NickName;
+                }
+            }
+
+        }
+
+
+    }
+
 }
+
 
 

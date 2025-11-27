@@ -4,7 +4,7 @@ public class WindowHandler : MonoBehaviour
 {
     public GameObject[] windows;
 
-    public void EnableWindow(int idWindow)
+    public void EnabledWindow(int idWindow)
     {
         windows[idWindow].SetActive(true);
 
