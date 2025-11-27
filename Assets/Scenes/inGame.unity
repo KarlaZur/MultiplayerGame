@@ -4221,6 +4221,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 443300468802930722, guid: faddd4888246a43469c4601d440981a6, type: 3}
+      propertyPath: photonView
+      value: 
+      objectReference: {fileID: 7834319057320994170}
+    - target: {fileID: 443300468802930722, guid: faddd4888246a43469c4601d440981a6, type: 3}
+      propertyPath: cameraPlayer
+      value: 
+      objectReference: {fileID: 7834319057320994169}
     - target: {fileID: 1259515199305737570, guid: faddd4888246a43469c4601d440981a6, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4269,19 +4277,43 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.002600003
       objectReference: {fileID: 0}
+    - target: {fileID: 8883306500009246718, guid: faddd4888246a43469c4601d440981a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.28119996
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883306500009246718, guid: faddd4888246a43469c4601d440981a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002600003
+      objectReference: {fileID: 0}
     - target: {fileID: 9157290401811004537, guid: faddd4888246a43469c4601d440981a6, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9157290401811004537, guid: faddd4888246a43469c4601d440981a6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faddd4888246a43469c4601d440981a6, type: 3}
+--- !u!1 &7834319057320994169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5377579531152042541, guid: faddd4888246a43469c4601d440981a6, type: 3}
+  m_PrefabInstance: {fileID: 7834319057320994168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7834319057320994170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 183324554745777587, guid: faddd4888246a43469c4601d440981a6, type: 3}
+  m_PrefabInstance: {fileID: 7834319057320994168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

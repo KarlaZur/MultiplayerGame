@@ -5831,6 +5831,7 @@ GameObject:
   - component: {fileID: 1548324928456480098}
   - component: {fileID: 183324554745777587}
   - component: {fileID: 7439858816566449516}
+  - component: {fileID: 443300468802930722}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -6084,3 +6085,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &443300468802930722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157290401811004537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e50cc4ac38abd7438399619719a2482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotonHandler
+  characterController: {fileID: 2313193631241914132}
+  basicPlatformerController: {fileID: 568131777654665149}
+  cameraPlayer: {fileID: 5377579531152042541}
+  photonView: {fileID: 183324554745777587}
